@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import * as React from 'react'
+import appCss from '~/_shadcn/styles/app.css?url'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -9,6 +10,7 @@ export const Route = createRootRoute({
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { title: 'Shiro' },
     ],
+    links: [{ rel: 'stylesheet', href: appCss }],
   }),
   notFoundComponent: NotFound,
   shellComponent: RootDocument,
