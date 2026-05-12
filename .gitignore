@@ -2,7 +2,9 @@
 # General #
 ###########
 
-
+# Claude
+CLAUDE.local.md
+.claude/settings.local.json
 
 ###########
 # node.js #
