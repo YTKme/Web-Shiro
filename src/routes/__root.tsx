@@ -31,10 +31,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <ThemeProvider>
-          <div className="fixed top-3 right-3 z-50">
-            <ThemeToggle />
+          <div className="flex min-h-svh flex-col">
+            <header className="flex items-center justify-end p-3 md:p-4">
+              <ThemeToggle />
+            </header>
+            {children}
           </div>
-          {children}
         </ThemeProvider>
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
