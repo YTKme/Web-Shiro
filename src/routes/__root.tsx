@@ -1,7 +1,9 @@
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import * as React from 'react'
+import { ThemeToggle } from '~/components/theme-toggle'
 import appCss from '~/_shadcn/styles/app.css?url'
+import { ThemeProvider, themeInitScript } from '~/lib/theme'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -25,9 +27,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
-        {children}
+        <ThemeProvider>
+          <div className="fixed top-3 right-3 z-50">
+            <ThemeToggle />
+          </div>
+          {children}
+        </ThemeProvider>
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
