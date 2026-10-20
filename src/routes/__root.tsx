@@ -1,8 +1,8 @@
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import * as React from 'react'
-import { ThemeToggle } from '~/components/theme-toggle'
 import appCss from '~/_shadcn/styles/app.css?url'
+import { TooltipProvider } from '~/_shadcn/ui/tooltip'
 import { ThemeProvider, themeInitScript } from '~/lib/theme'
 
 export const Route = createRootRoute({
@@ -31,12 +31,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <ThemeProvider>
-          <div className="flex min-h-svh flex-col">
-            <header className="flex items-center justify-end p-3 md:p-4">
-              <ThemeToggle />
-            </header>
+          <TooltipProvider>
             {children}
-          </div>
+          </TooltipProvider>
         </ThemeProvider>
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
